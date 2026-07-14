@@ -153,21 +153,16 @@ def redact_pdf_bytes(pdf_bytes: bytes, extra_terms: List[str] = None):
 # 2. INTERFACCIA STREAMLIT
 # ------------------------------------------------------------------------
 
-st.set_page_config(page_title="Redazione CF/IBAN da PDF", page_icon="🖤", layout="centered")
+st.set_page_config(page_title="Redazione CF/IBAN da PDF", page_icon=":black_large_square:", layout="centered")
 
-st.title("🖤 Redazione automatica CF e IBAN")
+st.title("Redazione automatica di Codice Fiscale e IBAN")
 st.caption(
-    "Carica un atto in PDF: lo strumento identifica Codice Fiscale e IBAN "
-    "(validati con il carattere di controllo ufficiale) e li oscura in nero, "
-    "rimuovendo davvero il testo sottostante — non un semplice rettangolo sopra."
+    "Carica un atto in formato PDF. Lo strumento identifica il Codice Fiscale e l'IBAN "
+    "presenti nel testo, ne verifica la validità tramite il carattere di controllo ufficiale "
+    "e ne effettua l'oscuramento, rimuovendo il testo sottostante dal documento."
 )
 
-st.warning(
-    "⚠️ I file caricati vengono elaborati da questa app e non salvati permanentemente, "
-    "ma transitano comunque sul server che la ospita. Non caricare documenti riservati "
-    "se non sei sicuro delle policy di trattamento dati del tuo ente per questo tipo di strumento.",
-    icon="⚠️",
-)
+st.divider()
 
 uploaded_file = st.file_uploader("Carica il PDF da redigere", type=["pdf"])
 
